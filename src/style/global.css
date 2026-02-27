@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Pixel';
+  src: url('../assets/fonts/Pixel.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ), url('../../public/img/back.jpg');
+    background-size: cover;
+}
+
+.logo {
+    max-width: 600px;
+}

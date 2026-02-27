@@ -1,0 +1,104 @@
+.chute-linha {
+    display: flex;
+    gap: 6px;
+    width: 100%;
+    max-width: 720px;
+    margin-inline: auto;
+    padding: 4px 8px;
+    box-sizing: border-box;
+}
+
+.chute-linha .celula {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 3px solid #000000;
+    font-size: 13px;
+    font-family: 'Pixel', system-ui, sans-serif;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: #ffe0b2; /* neutro bem claro */
+    color: #000000;
+    position: relative;
+    z-index: 1;
+    width: 80px;
+    height: 80px;
+    overflow: hidden; /* impede sprite de passar do quadrado */
+}
+
+.chute-linha .celula-nome .sprite {
+    width: 64px;
+    height: 64px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.chute-linha .celula.correto {
+    background-color: #43a047; 
+    color: #ffffff;
+}
+
+.chute-linha .celula.parcial {
+    background-color: #ffeb3b; 
+    color: #1f1300;
+}
+
+.chute-linha .celula.errado {
+    background-color: #d32f2f; 
+    color: #ffffff;
+}
+
+.chute-linha .celula.maior,
+.chute-linha .celula.menor {
+    position: relative;
+    overflow: hidden;
+    color: #000000;
+}
+
+.chute-linha .celula.maior::before,
+.chute-linha .celula.menor::before {
+    content: "";
+    position: absolute;
+    inset: -10%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6;
+    z-index: 0;
+}
+
+.chute-linha .celula.maior::before {
+    /* chute MAIOR que o alvo -> seta para baixo (diminuir) */
+    background-image: url('/img/baixo.png');
+}
+
+.chute-linha .celula.menor::before {
+    /* chute MENOR que o alvo -> seta para cima (aumentar) */
+    background-image: url('/img/cima.png');
+}
+
+.chute-linha .celula.maior,
+.chute-linha .celula.menor {
+    background-color: #d32f2f; 
+    color: #ffffff;
+}
+
+@media (max-width: 600px) {
+    .chute-linha {
+        gap: 4px;
+        padding: 4px;
+    }
+
+    .chute-linha .celula {
+        min-width: 52px;
+        width: 64px;
+        height: 64px;
+        font-size: 11px;
+        padding: 4px 6px;
+    }
+}
+

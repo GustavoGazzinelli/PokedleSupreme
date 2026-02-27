@@ -1,8 +1,8 @@
-export type PokemonLite = {
+export type Pokemons = {
     id: number
     nome: string
     tipo1: string
-    tipo2: string
+    tipo2: string | null
     gen: number
     fase: number
     cores: string[]
@@ -10,4 +10,5 @@ export type PokemonLite = {
     altura: number
     peso: number
     bst: number
+    sprite: string
   }

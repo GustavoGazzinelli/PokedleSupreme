@@ -1,0 +1,46 @@
+
+.container {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+a {
+    transition: 0.2s ease-in-out; 
+}
+
+.card {
+    display: flex;
+    justify-content: spa;
+    align-items: center;
+    text-decoration: none;
+    width: 90%;
+    max-width: 300px;
+    padding: 20px;
+    background-color: #feffd9;
+    gap: 20px;
+    border-radius: 12px 0px;
+    border: 8px solid #2f4b38;
+}
+
+a:hover {
+    scale: 1.02;
+}
+
+h2 {
+    font-family: 'Pixel';
+    color: rgb(0, 0, 0);
+    margin: 0;
+}
+
+p {
+    font-family: 'Pixel';
+    color: rgb(0, 0, 0);
+    margin: 0;
+}
+
+.icone {
+    max-height: 50px;
+}
