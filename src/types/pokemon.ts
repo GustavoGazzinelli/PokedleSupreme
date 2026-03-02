@@ -6,7 +6,6 @@ export type Pokemons = {
     gen: number
     fase: number
     cores: string[]
-    habitat: string
     altura: number
     peso: number
     bst: number

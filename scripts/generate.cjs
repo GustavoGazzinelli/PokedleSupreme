@@ -43,12 +43,19 @@ async function getPokemon(species) {
     gen: getGen(pokemon.id),
     fase: species.evolves_from_species ? 2 : 1,
     cores: [species.color.name],
-    habitat: species.habitat?.name ?? "unknown",
     altura: pokemon.height / 10,
     peso: pokemon.weight / 10,
     bst,
     sprite: pokemon.sprites.front_default
   };
+}
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[array[i], array[j]] = [array[j], array[i]]
+  }
+  return array
 }
 
 (async () => {
@@ -69,6 +76,8 @@ async function getPokemon(species) {
     }
   }
 
-  fs.writeFileSync("pokemons-canonical-ptbr.json", JSON.stringify(pokemons, null, 2), "utf-8");
-  console.log("✅ pokemons-canonical-ptbr.json gerado!");
+  shuffle(pokemons);
+
+  fs.writeFileSync("pokemon.json", JSON.stringify(pokemons, null, 2), "utf-8");
+  console.log("✅ pokemon.json gerado!");
 })();

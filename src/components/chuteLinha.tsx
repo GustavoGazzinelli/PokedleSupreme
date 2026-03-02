@@ -9,6 +9,7 @@ type ChuteLinhaProps = {
 
 export default function ChuteLinha({ pokemon, resultado }: ChuteLinhaProps) {
   return (
+
     <div className="chute-linha">
       <span className="celula celula-nome">
         <img
@@ -25,9 +26,13 @@ export default function ChuteLinha({ pokemon, resultado }: ChuteLinhaProps) {
       <span className={`celula ${resultado.tipo2}`}>
         {pokemon.tipo2}
       </span>
-    
-      <span className={`celula ${resultado.habitat}`}>
-        {pokemon.habitat}
+
+      <span className={`celula ${resultado.cores}`}>
+        {pokemon.cores.join(", ")}
+      </span>
+
+      <span className={`celula ${resultado.fase}`}>
+        {pokemon.fase}
       </span>
 
       <span className={`celula ${resultado.gen}`}>

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { getPokemonDoDia } from '../game/pokemonDoDia'
+import { getPokemonDoDia, getPokemonPorData } from '../game/pokemonDoDia'
 import { verificarResposta } from '../game/verificarResposta'
 import type { Pokemons } from '../types/pokemon'
 import ChuteInput from '../components/chuteInput'
@@ -17,11 +17,14 @@ export default function Classico() {
   const [tentativas, setTentativas] = useState<Tentativa[]>([])
 
   useEffect(() => {
-    setPokemonDoDia(getPokemonDoDia())
+    setPokemonDoDia(getPokemonPorData(new Date(2026, 3, 2)))
   }, [])
 
   function processarChute(pokemon: Pokemons) {
     if (!pokemonDoDia) return
+
+    const jaChutado = tentativas.some((t) => t.pokemon.id === pokemon.id)
+    if (jaChutado) return
 
     const resultado = verificarResposta(pokemon, pokemonDoDia)
 
@@ -50,7 +53,23 @@ export default function Classico() {
         <img src="/img/logo.png" alt="logo" />
       </Link>
 
-      <ChuteInput onChutar={processarChute} disabled={jogoFinalizado} />
+      <ChuteInput
+        onChutar={processarChute}
+        disabled={jogoFinalizado}
+        pokemonsJaChutadosIds={tentativas.map((t) => t.pokemon.id)}
+      />
+
+      <div className='header'>
+        <span className='header-item'>Pokemon</span>
+        <span className='header-item'>Tipo 1</span>
+        <span className='header-item'>Tipo 2</span>
+        <span className='header-item'>Cores</span>
+        <span className='header-item'>Fase</span>
+        <span className='header-item'>Gen</span>
+        <span className='header-item'>Altura</span>
+        <span className='header-item'>Peso</span>
+        <span className='header-item'>Stats</span>
+      </div>
 
       <div className="lista-tentativas">
         {tentativas.map((t, index) => (

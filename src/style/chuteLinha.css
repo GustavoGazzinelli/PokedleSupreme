@@ -13,7 +13,6 @@
     align-items: center;
     justify-content: center;
     min-width: 60px;
-    padding: 8px 10px;
     border-radius: 8px;
     border: 3px solid #000000;
     font-size: 13px;
@@ -26,7 +25,7 @@
     z-index: 1;
     width: 80px;
     height: 80px;
-    overflow: hidden; /* impede sprite de passar do quadrado */
+    overflow: hidden; 
 }
 
 .chute-linha .celula-nome .sprite {
