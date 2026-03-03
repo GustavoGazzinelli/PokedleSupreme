@@ -59,26 +59,28 @@ export default function Classico() {
         pokemonsJaChutadosIds={tentativas.map((t) => t.pokemon.id)}
       />
 
-      <div className='header'>
-        <span className='header-item'>Pokemon</span>
-        <span className='header-item'>Tipo 1</span>
-        <span className='header-item'>Tipo 2</span>
-        <span className='header-item'>Cores</span>
-        <span className='header-item'>Fase</span>
-        <span className='header-item'>Gen</span>
-        <span className='header-item'>Altura</span>
-        <span className='header-item'>Peso</span>
-        <span className='header-item'>Stats</span>
-      </div>
+      <div className='header-container'>
+        <div className='header'>
+          <span className='header-item'>Pokemon</span>
+          <span className='header-item'>Tipo 1</span>
+          <span className='header-item'>Tipo 2</span>
+          <span className='header-item'>Cores</span>
+          <span className='header-item'>Fase</span>
+          <span className='header-item'>Gen</span>
+          <span className='header-item'>Altura</span>
+          <span className='header-item'>Peso</span>
+          <span className='header-item'>Stats</span>
+        </div>
 
-      <div className="lista-tentativas">
-        {tentativas.map((t, index) => (
-          <ChuteLinha
-            key={index}
-            pokemon={t.pokemon}
-            resultado={t.resultado}
-          />
-        ))}
+        <div className="lista-tentativas">
+          {tentativas.map((t, index) => (
+            <ChuteLinha
+              key={index}
+              pokemon={t.pokemon}
+              resultado={t.resultado}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )

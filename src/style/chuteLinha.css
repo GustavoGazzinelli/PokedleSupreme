@@ -2,10 +2,10 @@
     display: flex;
     gap: 6px;
     width: 100%;
-    max-width: 720px;
     margin-inline: auto;
     padding: 4px 8px;
     box-sizing: border-box;
+    perspective: 800px;
 }
 
 .chute-linha .celula {
@@ -19,13 +19,17 @@
     font-family: 'Pixel', system-ui, sans-serif;
     text-align: center;
     box-sizing: border-box;
-    background-color: #ffe0b2; /* neutro bem claro */
+    background-color: #ffe0b2;
     color: #000000;
     position: relative;
     z-index: 1;
     width: 80px;
     height: 80px;
-    overflow: hidden; 
+    overflow: hidden;
+    transform: rotateY(90deg);
+    transition: transform 0.4s ease, background-color 0.3s ease;
+    transform-style: preserve-3d;
+    opacity: 0;
 }
 
 .chute-linha .celula-nome .sprite {
@@ -38,17 +42,17 @@
 }
 
 .chute-linha .celula.correto {
-    background-color: #43a047; 
+    background-color: #43a047;
     color: #ffffff;
 }
 
 .chute-linha .celula.parcial {
-    background-color: #ffeb3b; 
+    background-color: #ffeb3b;
     color: #1f1300;
 }
 
 .chute-linha .celula.errado {
-    background-color: #d32f2f; 
+    background-color: #d32f2f;
     color: #ffffff;
 }
 
@@ -82,8 +86,13 @@
 
 .chute-linha .celula.maior,
 .chute-linha .celula.menor {
-    background-color: #d32f2f; 
+    background-color: #d32f2f;
     color: #ffffff;
+}
+
+.celula.revelada {
+    transform: rotateY(0deg);
+    opacity: 1;
 }
 
 @media (max-width: 600px) {
@@ -100,4 +109,3 @@
         padding: 4px 6px;
     }
 }
-

@@ -89,10 +89,10 @@
 
 .header {
     display: flex;
-    gap: 6px;
     padding: 4px 8px;
+    gap: 6px;
+    font-family: 'Pixel', system-ui, sans-serif;
     box-sizing: border-box;
-    max-width: 720px;
 }
 
 .header-item {
@@ -101,8 +101,10 @@
     justify-content: center;
     min-width: 60px;
     padding: 8px 10px;
-    border-radius: 8px;
+    font-weight: 600;
+    border-bottom: 5px solid #fff;
     width: 20px;
+    color: #fff;
 }
 
 @media (max-width: 480px) {
