@@ -13,6 +13,13 @@ export default function Home() {
             <p>Novas Pistas a cada tentativa</p>
         </div>
       </Link>
+      <Link className='card' to={'/descricao'}>
+        <img className='icone' src="/img/pokedex.png" alt="pokedex" />
+        <div>
+            <h2>Descrição</h2>
+            <p>Adivinhe o Pokémon pela descrição da Pokedex</p>
+        </div>
+      </Link>
     </div>
   )
 }

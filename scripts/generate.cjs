@@ -23,10 +23,29 @@ async function fetchJSON(url) {
   return res.json();
 }
 
+function getDescricao(species) {
+  const entries = species.flavor_text_entries;
+
+  const pick = (lang) =>
+    entries.find(
+      e => e.language.name === lang && e.version.name.includes("red")
+    ) || entries.find(e => e.language.name === lang);
+
+  let entry = pick("pt-BR") || pick("pt") || pick("en");
+
+  if (!entry) return "";
+
+  return entry.flavor_text
+    .replace(/\f/g, " ")
+    .replace(/\n/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 async function getPokemon(species) {
   const defaultVar = species.varieties.find(v => v.is_default);
   if (!defaultVar) return null;
-
+  
   const pokemon = await fetchJSON(defaultVar.pokemon.url);
 
   const bst = pokemon.stats.reduce((sum, s) => sum + s.base_stat, 0);
@@ -46,7 +65,8 @@ async function getPokemon(species) {
     altura: pokemon.height / 10,
     peso: pokemon.weight / 10,
     bst,
-    sprite: pokemon.sprites.front_default
+    sprite: pokemon.sprites.front_default,
+    descricao: getDescricao(species)
   };
 }
 

@@ -17,7 +17,7 @@ export default function Classico() {
   const [tentativas, setTentativas] = useState<Tentativa[]>([])
 
   useEffect(() => {
-    setPokemonDoDia(getPokemonDoDia())
+    setPokemonDoDia(getPokemonDoDia('classico'))
   }, [])
 
   function processarChute(pokemon: Pokemons) {
@@ -59,6 +59,7 @@ export default function Classico() {
         pokemonsJaChutadosIds={tentativas.map((t) => t.pokemon.id)}
       />
 
+      {tentativas.length > 0 && (
       <div className='header-container'>
         <div className='header'>
           <span className='header-item'>Pokemon</span>
@@ -71,6 +72,7 @@ export default function Classico() {
           <span className='header-item'>Peso</span>
           <span className='header-item'>Stats</span>
         </div>
+        
 
         <div className="lista-tentativas">
           {tentativas.map((t, index) => (
@@ -79,9 +81,10 @@ export default function Classico() {
               pokemon={t.pokemon}
               resultado={t.resultado}
             />
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }

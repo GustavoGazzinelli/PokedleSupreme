@@ -3,8 +3,8 @@ import type { Pokemons } from "../types/pokemon"
 
 const lista: Pokemons[] = pokemons
 
-function hashDate(date: Date): number {
-  const str = date.toISOString().slice(0, 10)
+function hashDate(data: Date, modo: string): number {
+  const str = data.toISOString().slice(0, 10) + modo
   let hash = 0
 
   for (let i = 0; i < str.length; i++) {
@@ -15,13 +15,13 @@ function hashDate(date: Date): number {
   return Math.abs(hash)
 }
 
-export function getPokemonDoDia(): Pokemons {
+export function getPokemonDoDia(modo: string): Pokemons {
   const hoje = new Date()
-  const index = hashDate(hoje) % lista.length
+  const index = hashDate(hoje, modo) % lista.length
   return lista[index]
 }
 
-export function getPokemonPorData(data: Date): Pokemons {
-  const index = hashDate(data) % lista.length
+export function getPokemonPorData(data: Date, modo: string): Pokemons {
+  const index = hashDate(data, modo) % lista.length
   return lista[index]
 }
