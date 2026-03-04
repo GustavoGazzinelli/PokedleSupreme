@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { getPokemonDoDia, getPokemonPorData } from '../game/pokemonDoDia'
+import { getPokemonDoDia } from '../game/pokemonDoDia'
 import { verificarResposta } from '../game/verificarResposta'
 import type { Pokemons } from '../types/pokemon'
 import ChuteInput from '../components/chuteInput'
@@ -17,7 +17,7 @@ export default function Classico() {
   const [tentativas, setTentativas] = useState<Tentativa[]>([])
 
   useEffect(() => {
-    setPokemonDoDia(getPokemonPorData(new Date(2026, 3, 2)))
+    setPokemonDoDia(getPokemonDoDia())
   }, [])
 
   function processarChute(pokemon: Pokemons) {
